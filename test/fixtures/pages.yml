@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  journal: one
+  start_date: 
+  end_date: 
+
+two:
+  type: 
+  journal: two
+  start_date: 
+  end_date: 
