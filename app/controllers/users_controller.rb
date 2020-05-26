@@ -8,21 +8,25 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    user.first_name = user.first_name.titleize
-    user.last_name = user.last_name.titleize
+    user = User.create(
+      username: params[:username],
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: params[:password]
+    )
 
-    if user.save
-      session[:user_id] = user.id
-    else
+    #session[:user_id] = user.id
+    render :json => user
       # Something
-    end
+
   end
 
-    def user_params
-      params.require(:user).permit(:username, :first_name, :last_name, :email, :password)
-    end
-    def find_user
-      user = User.find(params[:id])
-    end
+  def user_params
+    params.permit(:username, :first_name, :last_name, :email, :password)
+  end
+  def find_user
+    user = User.find(params[:id])
+  end
+
 end
