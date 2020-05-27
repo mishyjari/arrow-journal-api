@@ -1,8 +1,12 @@
 class TasksController < ApplicationController
 
-  def index 
+  def index
     tasks = Task.all
     render :json => tasks
+  end
+
+  def create
+
   end
 
 end

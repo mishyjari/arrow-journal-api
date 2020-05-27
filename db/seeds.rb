@@ -1,3 +1,8 @@
+Task.destroy_all
+Event.destroy_all
+Journal.destroy_all
+User.destroy_all
+
 mishy = User.create({
   username: 'shelle',
   first_name: 'Mishy',
@@ -7,25 +12,27 @@ mishy = User.create({
 })
 
 journal = Journal.create({
-  name: 'My Journal of Foobar', 
-  start_date: Date.new, 
+  name: 'My Journal of Foobar',
+  start_date: Date.new,
   end_date: Date.new + 1.year,
   user_id: mishy.id
 })
 
-100.times do 
+100.times do
   Task.create({
     name: Faker::Verb.base + ' ' + Faker::Appliance.equipment,
     journal_id: journal.id,
     date: Faker::Date.forward(days: 180),
     completed: false,
   })
-end 
+end
 
 100.times do
+  d = Faker::Date.forward(days: 365)
   Event.create({
-    name: "Some event",
-    start_date: Faker::Date.forward(days: 365),
+    name: Faker::Hacker.ingverb,
+    start_date: d,
+    end_date: d + 1.hour,
     location: 'some location',
     journal_id: journal.id
   })

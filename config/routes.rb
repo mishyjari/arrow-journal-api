@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :tasks, only: :index
 
-  resources :events, only: :index
+  resources :events, only: [:index, :create]
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
