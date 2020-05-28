@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :journals, only: [:show]
 
-  resources :tasks, only: :index
+  resources :tasks, only: [:index, :create]
 
   resources :events, only: [:index, :create]
 
