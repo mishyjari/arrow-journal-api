@@ -15,11 +15,26 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password]
     )
-
-    #session[:user_id] = user.id
+    Journal.create(
+      user_id: user.id,
+      name: user.username.titleize + "'s Journal",
+      start_date: Date.new()
+    )
     render :json => user
-      # Something
+  end
 
+  def show
+    user = User.find(params[:id])
+    if user
+      render :json => user
+    else
+      'User Not Found'
+    end
+  end
+
+  def journal
+    user = User.find(params[:id])
+    render :json => user, include: [:journals, :events, :tasks]
   end
 
   def user_params
