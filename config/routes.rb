@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   resources :journals, only: [:show]
 
-  resources :tasks, only: [:index, :create]
+  resources :tasks, only: [:index, :create, :update, :destroy]
 
-  resources :events, only: [:index, :create]
+  resources :events, only: [:index, :create, :update, :destroy]
+
+  resources :memos, only: [:create, :update, :destroy]
+
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'

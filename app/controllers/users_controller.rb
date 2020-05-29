@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def journal
     user = User.find(params[:id])
-    render :json => user, include: [:journals, :events, :tasks]
+    render :json => user, include: [:journals, :events, :tasks, :memos]
   end
 
   def user_params
