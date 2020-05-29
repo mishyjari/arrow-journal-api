@@ -1,5 +1,15 @@
 class MemosController < ApplicationController
   
+  def index
+    memos = Memo.all
+    render :json => memos
+  end
+
+  def show
+    memo = Memo.find(params[:id])
+    render :json => memo
+  end
+
   def create
     memo = Memo.create({
       name: params[:name],
