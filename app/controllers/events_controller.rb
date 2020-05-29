@@ -14,4 +14,20 @@ class EventsController < ApplicationController
       })
     render :json => event
   end
+
+  def update
+    event = Event.find(params[:id])
+    event.update({
+      name: params[:name],
+      location: params[:location],
+      start_date: params[:start_date],
+      end_date: params[:end_date]
+      })
+    render :json => event
+  end
+
+  def destroy
+    event = Event.find(params[:id])
+    event.destroy
+  end
 end

@@ -16,4 +16,13 @@ class TasksController < ApplicationController
     render :json => task
   end
 
+  def update
+    task = Task.find(params[:id])
+    task.update({
+      name: params[:name],
+      completed: params[:completed]
+    })
+    render :json => task
+  end
+
 end
