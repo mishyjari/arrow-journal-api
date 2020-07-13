@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :create, :update, :destroy]
 
-  resources :memos, only: [:index, :show, :create, :update, :destroy]
+  resources :memos, only: [:create, :update, :destroy]
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'

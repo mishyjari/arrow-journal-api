@@ -28,6 +28,7 @@ class MemosController < ApplicationController
       })
       render :json => memo
     end
+
     def destroy
       Memo.destroy(Memo.find(params[:id]))
     end
